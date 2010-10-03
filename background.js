@@ -20,12 +20,26 @@ function StoreAllSupertabs(super_store)
 			});
 }
 
+function OnTabUpdate(tab_id, change_info, tab)
+{
+	if (change_info.url != undefined)
+	{
+		supertabs.UpdateTab(tab.windowId, tab.id, tab.url);
+	}
+}
+
+function SetPrimaryCallbacks()
+{
+	chrome.tabs.onUpdated.addListener(OnTabUpdate);
+}
+
 function main()
 {
-	
+	SetPrimaryCallbacks();
+	StoreAllSupertabs(supertabs);
 }
 
 supertabs = new Supertabs();
 
-FirstInitSupertabs(supertabs);
+
 main();
