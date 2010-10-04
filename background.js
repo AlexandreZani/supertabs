@@ -20,7 +20,7 @@ function StoreAllSupertabs(super_store)
 			});
 }
 
-function OnTabUpdate(tab_id, change_info, tab)
+function OnTabUpdated(tab_id, change_info, tab)
 {
 	if (change_info.url != undefined)
 	{
@@ -28,9 +28,15 @@ function OnTabUpdate(tab_id, change_info, tab)
 	}
 }
 
+function OnTabCreated(tab)
+{
+	supertabs.AddTab(tab.windowId, tab.id, tab.index, tab.url);
+}
+
 function SetPrimaryCallbacks()
 {
-	chrome.tabs.onUpdated.addListener(OnTabUpdate);
+	chrome.tabs.onUpdated.addListener(OnTabUpdated);
+	chrome.tabs.onCreated.addListener(OnTabCreated);
 }
 
 function main()
