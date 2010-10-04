@@ -33,10 +33,16 @@ function OnTabCreated(tab)
 	supertabs.AddTab(tab.windowId, tab.id, tab.index, tab.url);
 }
 
+function OnTabRemoved(tab_id)
+{
+	supertabs.DeleteTab(tab_id)
+}
+
 function SetPrimaryCallbacks()
 {
 	chrome.tabs.onUpdated.addListener(OnTabUpdated);
 	chrome.tabs.onCreated.addListener(OnTabCreated);
+	chrome.tabs.onRemoved.addListener(OnTabRemoved);
 }
 
 function main()
