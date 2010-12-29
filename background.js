@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-function StoreAllSupertabs(super_store) {
+function storeAllSupertabs(super_store) {
 	var g = new Object()
 	g.populate = true;
 	
@@ -24,7 +24,7 @@ function StoreAllSupertabs(super_store) {
 				for(w = 0; w < windows.length; w++) {
 					for(t = 0; t < windows[w].tabs.length; t++) {
 						var tab = windows[w].tabs[t];
-						supertabs.AddTab(tab.windowId, tab.id, tab.index, tab.url);
+						supertabs.addTab(tab.windowId, tab.id, tab.index, tab.url);
 					}
 				}
 			});
@@ -33,7 +33,7 @@ function StoreAllSupertabs(super_store) {
 function main() {
 	listeners = new ChromeListeners();
 	listeners.enable();
-	StoreAllSupertabs(supertabs);
+	storeAllSupertabs(supertabs);
 }
 
 supertabs = new Supertabs();
