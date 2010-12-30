@@ -1,0 +1,10 @@
+table#supertabs_table
+{
+  width: 200px;
+}
+
+td
+{
+  border: 1px solid black;
+  width: 100%;
+}
