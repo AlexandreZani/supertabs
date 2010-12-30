@@ -44,7 +44,7 @@ function onSupertabMouseOut(id) {
 }
 
 function onSupertabClick(id) {
-  alert("Opening " + id);
+  chrome.extension.sendRequest({ request_type: "open_supertab", supertab_id: id });
 }
 
 getSupertabs();
