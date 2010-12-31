@@ -26,9 +26,11 @@ function populateTable(supertabs) {
 
   for (var i = 0; i < s.length; i++) {
     table_html += "<tr><td id='supertab_menu_item" + s[i].supertab_id + "' ";
-    table_html += "onClick='onSupertabClick(" + s[i].supertab_id + ")' ";
-    table_html += "onMouseOver='onSupertabMouseOver(" + s[i].supertab_id + ")' ";
-    table_html += "onMouseOut='onSupertabMouseOut(" + s[i].supertab_id + ")' ";
+    if (!s[i].open) {
+      table_html += "onClick='onSupertabClick(" + s[i].supertab_id + ")' ";
+      table_html += "onMouseOver='onSupertabMouseOver(" + s[i].supertab_id + ")' ";
+      table_html += "onMouseOut='onSupertabMouseOut(" + s[i].supertab_id + ")' ";
+    }
     table_html += ">" + s[i].title + "</td></tr>";
   }
 
