@@ -9,7 +9,8 @@
     },
     
     "permissions" : [
-        "tabs"
+        "tabs",
+        "http://localhost/"
     ],
 
     "background_page" : "background.html"
