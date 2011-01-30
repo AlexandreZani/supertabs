@@ -18,6 +18,24 @@ function getSupertabs() {
   chrome.extension.sendRequest({ request_type: "get_supertabs" }, initializePopup);
 }
 
+function login() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  chrome.extension.sendRequest( { request_type: "validate_login",
+      args: {username: username, password: password } }, login_callback);
+}
+
+function login_callback(response) {
+  if (response.success) {
+    var login_form_div = document.getElementById("login_form_div");
+    login_form_div.setAttribute("style", "display:none");
+    getSupertabs();
+  } else {
+    var invalid_creds = document.getElementById("invalid_creds");
+    invalid_creds.setAttribute("style", "");
+  }
+}
+
 function initializePopup(supertabs_api) {
   if (supertabs_api.credentials == null) {
     var login_form_div = document.getElementById("login_form_div");
