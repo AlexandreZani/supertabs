@@ -36,6 +36,8 @@ function main() {
 	storeAllSupertabs(supertabs);
 }
 
-supertabs = new Supertabs();
+
+supertabs_api = getSupertabsApi();
+supertabs = supertabs_api.supertabs;
 
 main();

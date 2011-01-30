@@ -15,7 +15,18 @@
  */
 
 function getSupertabs() {
-  chrome.extension.sendRequest({ request_type: "get_supertabs" }, populateTable);
+  chrome.extension.sendRequest({ request_type: "get_supertabs" }, initializePopup);
+}
+
+function initializePopup(supertabs_api) {
+  if (supertabs_api.credentials == null) {
+    var login_form_div = document.getElementById("login_form_div");
+    login_form_div.setAttribute("style", "");
+  } else {
+    var supertabs_table_div = document.getElementById("supertabs_table_div");
+    supertabs_table_div.setAttribute("style", "");
+    populateTable(supertabs_api.supertabs);
+  }
 }
 
 function populateTable(supertabs) {

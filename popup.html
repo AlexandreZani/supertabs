@@ -20,7 +20,16 @@
     <link rel='stylesheet' type='text/css' href='popup.css' />
   </head>
   <body>
-    <div>
+    <div style="display:none" id="login_form_div">
+      <form>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+        <input type="button" id="submit" value="Log In" />
+      </form>
+    </div>
+    <div style="display:none" id="supertabs_table_div">
       <table id="supertabs_table">
       </table>
     </div>
