@@ -14,28 +14,11 @@
  * limitations under the License.
  */
 
-function storeAllSupertabs(super_store) {
-	var g = new Object()
-	g.populate = true;
-	
-	chrome.windows.getAll(g,
-			function(windows) {
-				supertabs.supertabs = new Array();
-				for(w = 0; w < windows.length; w++) {
-					for(t = 0; t < windows[w].tabs.length; t++) {
-						var tab = windows[w].tabs[t];
-						supertabs.addTab(tab.windowId, tab.id, tab.index, tab.url);
-					}
-				}
-			});
-}
 
 function main() {
 	listeners = new ChromeListeners();
 	listeners.enable();
-	storeAllSupertabs(supertabs);
 }
-
 
 supertabs_api = getSupertabsApi();
 supertabs = supertabs_api.supertabs;
