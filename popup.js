@@ -25,6 +25,10 @@ function login() {
       args: {username: username, password: password } }, login_callback);
 }
 
+function logout() {
+  chrome.extension.sendRequest({ request_type: "logout" }, function(){});
+}
+
 function login_callback(response) {
   if (response.success) {
     var login_form_div = document.getElementById("login_form_div");
