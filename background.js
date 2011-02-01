@@ -14,13 +14,8 @@
  * limitations under the License.
  */
 
-
-function main() {
-	listeners = new ChromeListeners();
-	listeners.enable();
-}
-
 supertabs_api = getSupertabsApi();
 supertabs = supertabs_api.supertabs;
+storeAllSupertabs(supertabs_api.supertabs);
 
-main();
+listeners = new ChromeListeners();
