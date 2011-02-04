@@ -19,3 +19,4 @@ supertabs = supertabs_api.supertabs;
 storeAllSupertabs(supertabs_api.supertabs);
 
 listeners = new ChromeListeners();
+flushDeletedTabs();
